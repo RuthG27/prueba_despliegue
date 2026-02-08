@@ -1,0 +1,47 @@
+<div id="productos">
+
+    <div id="contenido">
+
+        <div id="texto">
+            <h1>Productos</h1>
+
+            <div>
+                <p><strong>Consigue sacar el máximo rendimiento a tus recetas con nuestros productos</strong></p>
+
+        
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="productosnaturales">
+        <p><strong>Productos 100% naturales · Productos 100% naturales · Productos 100% naturales · Productos 100% naturales</strong></p>
+    </div>
+
+
+    
+    <div id="contenedorProductos">
+
+        @for(producto of productos; track producto._id){
+
+            <div class="cardProductos">
+
+                <img [src]="producto.img" [alt]="producto.nombre">
+                <p><strong>{{producto.nombre}}</strong></p>
+                <p>{{producto.categoria}}</p>
+                <br>
+                <p class="precio">{{ producto.precio}} €/u.</p>
+
+                <button>Añadir al carrito</button>
+
+
+            </div>
+
+        }
+
+    </div>
+
+
+
+</div>
