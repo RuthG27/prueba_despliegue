@@ -34,6 +34,7 @@ jobs:
           switches: -avzr --delete
           # El asterisco busca la carpeta del proyecto y entra hasta los archivos
           path: dist/*/browser/
+          remote_path: /var/www/html/proyecto-angular-final/
           remote_path: ${{ secrets.VPS_PATH }}
           remote_host: ${{ secrets.VPS_HOST }}
           remote_user: ${{ secrets.VPS_USER }}
