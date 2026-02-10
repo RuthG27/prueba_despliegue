@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build -- --configuration production
+        run: npm run build -- --base-href /practica-nueva/
 
       - name: Inspect dist structure
         run: |
