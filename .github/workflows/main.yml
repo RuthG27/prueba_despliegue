@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build -- --base-href /practica-nueva/
+        run: npm run build -- --configuration production --base-href /
 
       - name: Inspect dist structure
         run: |
@@ -32,7 +32,7 @@ jobs:
         uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
-          # El asterisco hace que funcione sin importar el nombre del proyecto
+          # El asterisco busca la carpeta del proyecto y entra hasta los archivos
           path: dist/*/browser/
           remote_path: ${{ secrets.VPS_PATH }}
           remote_host: ${{ secrets.VPS_HOST }}
