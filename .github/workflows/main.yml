@@ -23,19 +23,13 @@ jobs:
       - name: Build project
         run: npm run build -- --configuration production --base-href /
 
-      - name: Inspect dist structure
-        run: |
-          echo "Comprobando carpetas generadas en dist:"
-          ls -R dist
-
       - name: Deploy via rsync
         uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
-          # El asterisco busca la carpeta del proyecto y entra hasta los archivos
-          path: dist/*/browser/
+          # Cambiamos el path para asegurar que coja todo lo que genera Angular
+          path: dist/
           remote_path: /var/www/html/proyecto-angular-final/
-          remote_path: ${{ secrets.VPS_PATH }}
           remote_host: ${{ secrets.VPS_HOST }}
-          remote_user: ${{ secrets.VPS_USER }}
+          remote_user: root
           remote_key: ${{ secrets.VPS_SSH_KEY }}
